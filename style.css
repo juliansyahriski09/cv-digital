@@ -1,0 +1,164 @@
+/* warna yang dipakai */
+:root {
+  --gelap: #26343f;
+  --teal: #1f8a83;
+  --teal-muda: #e4f1f0;
+  --teks: #2b2b2b;
+  --abu: #6b7580;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  color: var(--teks);
+  line-height: 1.65;
+  background: #fff;
+  display: flex; /* sidebar kiri, isi kanan */
+  flex-wrap: wrap;
+}
+
+/* ---------- sidebar profil ---------- */
+.profil {
+  background: var(--gelap);
+  color: #fff;
+  width: 300px;
+  min-height: 100vh;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.foto {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--teal);
+  margin-bottom: 1rem;
+}
+
+.profil h1 { font-size: 1.5rem; line-height: 1.3; }
+.profesi { color: #b9c6cf; margin-bottom: .5rem; }
+.kontak { font-size: .9rem; color: #dfe7ec; }
+.profil nav { margin-top: 1.2rem; }
+
+nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+nav a {
+  color: #dfe7ec;
+  text-decoration: none;
+  padding: .55rem 0;
+  border-top: 1px solid #3a4a57;
+  transition: background .2s, padding-left .2s;
+}
+
+nav a:last-child { border-bottom: 1px solid #3a4a57; }
+nav a:hover { background: var(--teal); padding-left: .8rem; color: #fff; }
+
+
+.tombol {
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  padding: .7rem 1.6rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.tombol:hover { background: #17706a; }
+
+/* ---------- isi CV ---------- */
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.5rem 3rem;
+  max-width: 820px;
+}
+
+section { margin-bottom: 2.5rem; }
+
+h2 {
+  font-size: 1.4rem;
+  color: var(--gelap);
+  margin-bottom: 1rem;
+  padding-bottom: .4rem;
+  border-bottom: 2px solid var(--teal-muda);
+}
+
+h3 { font-size: 1.05rem; }
+
+#education article,
+#experience article {
+  border-left: 3px solid var(--teal);
+  padding-left: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.waktu { color: var(--abu); font-size: .92rem; }
+
+/* skills dan portfolio pakai grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1rem;
+  list-style: none;
+}
+
+#skills li {
+  background: var(--teal-muda);
+  padding: .7rem 1rem;
+  border-radius: 4px;
+  transition: background .2s, color .2s;
+}
+
+#skills li:hover { background: var(--teal); color: #fff; }
+
+.kartu {
+  border: 1px solid #d8dfe3;
+  border-radius: 4px;
+  padding: 1rem;
+  transition: border-color .2s, transform .2s;
+}
+
+.kartu:hover { border-color: var(--teal); transform: translateY(-3px); }
+.kartu p { color: var(--abu); font-size: .95rem; }
+
+/* ---------- footer ---------- */
+footer {
+  width: 100%;
+  background: var(--teal-muda);
+  padding: 1.5rem 3rem;
+}
+
+footer h2 { border: none; margin-bottom: .3rem; }
+
+/* ---------- layar kecil (HP) ---------- */
+@media (max-width: 800px) {
+  .profil { width: 100%; min-height: auto; position: static; }
+  nav { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: .3rem 1rem; }
+  nav a, nav a:last-child { border: none; }
+  nav a:hover { padding-left: 0; background: none; color: var(--teal-muda); }
+  main { padding: 1.5rem; }
+  footer { padding: 1.5rem; }
+}
+
+/* waktu di-print, menu dan tombol disembunyikan */
+@media print {
+  nav, .tombol { display: none; }
+  .profil { position: static; min-height: auto; }
+}   
